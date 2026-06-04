@@ -115,7 +115,7 @@ def index():
 @route('/thermostat', method='POST')
 def boost():
     ip = request.get('REMOTE_ADDR')
-    wh.setRoomMode(1,"boost", boost_temp=((room1Temp) + 2), boost_temp_time=5)
+    wh.setRoomMode(1,"boost", boost_temp=((room1Temp) + 2), boost_temp_time=30)
     now = datetime.now()
     start = now.strftime("%d/%m/%Y at %H:%M")
     return template("boost", room1Temp=room1Temp, room2Temp=room2Temp, room3Temp=room3Temp, ip=ip, start=start)
@@ -123,7 +123,7 @@ def boost():
 @route('/bbedroom', method='POST')
 def boost():
     ip = request.get('REMOTE_ADDR')
-    wh.setRoomMode(3,"boost", boost_temp=14, boost_temp_time=2)
+    wh.setRoomMode(3,"boost", boost_temp=((room3Temp) + 2), boost_temp_time=30)
     now = datetime.now()
     start = now.strftime("%d/%m/%Y at %H:%M")
     return template("boost", room1Temp=room1Temp, room2Temp=room2Temp, room3Temp=room3Temp, ip=ip, start=start)
@@ -131,11 +131,11 @@ def boost():
 @route('/bkitchen', method='POST')
 def boost():
     ip = request.get('REMOTE_ADDR')
-    wh.setRoomMode(2,"boost", boost_temp=14, boost_temp_time=2)
+    wh.setRoomMode(2,"boost", boost_temp=((room2Temp) + 2), boost_temp_time=30)
     now = datetime.now()
     start = now.strftime("%d/%m/%Y at %H:%M")
     return template("boost", room1Temp=room1Temp, room2Temp=room2Temp, room3Temp=room3Temp, ip=ip, start=start)
-    
+  
 
 if __name__ == '__main__':
     run(host='localhost', port=8080, debug=True)
