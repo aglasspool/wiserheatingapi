@@ -117,7 +117,7 @@ def index():
             return template("boost", room1Temp=room1Temp, room2Temp=room2Temp, room3Temp=room3Temp, current_temperature=current_temperature)
         case 'thermostat':
             ip = request.get('REMOTE_ADDR')
-            wh.setRoomMode(1,"boost", boost_temp=14, boost_temp_time=30)
+            wh.setRoomMode(1,"boost", boost_temp=((room1Temp) + 2), boost_temp_time=30)
             now = datetime.now()
             start = now.strftime("%d/%m/%Y at %H:%M")
             return template("boosted", ip=ip, start=start, current_temperature=current_temperature)
