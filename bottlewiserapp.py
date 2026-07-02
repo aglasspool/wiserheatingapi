@@ -5,6 +5,7 @@ from wiserHeatingAPI import wiserHub
 from datetime import datetime
 
 import requests
+import json
 
 
 # Get Wiser Parameters from keyfile
@@ -136,5 +137,5 @@ def index():
     
 
 if __name__ == '__main__':
-    run(host='localhost', port=8080, debug=True)
+    run(host='heating.lan', port=80, debug=True)
 
