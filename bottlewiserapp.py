@@ -72,4 +72,4 @@ def index():
     
 
 if __name__ == '__main__':
-    run(host='localhost', port=8080)
+    run(host='192.168.1.2', port=80)
