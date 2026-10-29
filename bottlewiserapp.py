@@ -6,7 +6,6 @@ from datetime import datetime
 
 import requests
 import json
-import logging
 
 # Get Wiser Parameters from keyfile
 with open("wiserkeys.params", "r") as f:
@@ -72,4 +71,4 @@ def index():
     
 
 if __name__ == '__main__':
-    run(host='192.168.1.2', port=80)
+    run(server='tornado', host='192.168.1.2', port=80)
